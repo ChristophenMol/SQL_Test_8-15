@@ -1,0 +1,36 @@
+SELECT * 
+FROM users
+LIMIT 150;
+----------
+SELECT * 
+FROM progress
+LIMIT 150;
+----------
+SELECT user_id
+FROM users
+WHERE user_id LIKE '5b%'
+GROUP BY user_id
+ORDER BY user_id
+LIMIT 25;
+-----------
+SELECT city,
+COUNT (user_id)
+AS test
+FROM users
+WHERE city = 'New York';
+--------
+SELECT mobile_app,
+COUNT (mobile_app)
+AS test
+FROM users
+GROUP BY user_id;
+---------
+SELECT sign_up_at,
+   strftime('%S', sign_up_at), COUNT (*)
+FROM users
+GROUP BY 1
+LIMIT 20;
+---------
+SELECT *
+FROM user_id, sign_up_at
+FULL OUTER JOIN;
